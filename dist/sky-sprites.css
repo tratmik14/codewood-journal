@@ -1,0 +1,26 @@
+/* Opaque terrain silhouettes occlude every sky sprite, including gaps between branches. */
+:root{--sky-top:#a4be91;--sky-horizon:#c2cfa0}
+.sky-color{position:absolute;inset:0;z-index:0;background:linear-gradient(var(--sky-top),var(--sky-horizon) 65%);transition:background-color 200ms linear}
+.sky-weather{z-index:1;clip-path:none;overflow:hidden}
+.hero-landscape{z-index:2}
+.night-wash,.sunset-wash{z-index:3;mask-image:url('assets/forest-foreground.png');mask-size:100% 100%;mask-repeat:no-repeat;mask-mode:alpha}
+.chimney-plume{z-index:4}
+.celestial{width:8.5%;aspect-ratio:1;height:auto}
+.celestial.moon{width:4.4%}
+.celestial-sprite{position:absolute;inset:0;background-size:200% 200%;background-position:0 0;background-repeat:no-repeat;image-rendering:pixelated}
+.sun-frames{background-image:url('assets/sun-frames.png');animation:sun-shimmer-frames 3.2s step-end infinite}
+.moon-frames{background-image:url('assets/moon-frames.png');animation:moon-glint-frames 7.4s step-end -1.2s infinite}
+.moving-cloud{width:29%;aspect-ratio:3/1;height:auto;opacity:.96;animation:cloud-crossing 140s linear -42s infinite;filter:brightness(calc(1 - var(--night)*.48)) saturate(calc(1 - var(--night)*.5));transition:filter 200ms linear}
+.moving-cloud.cloud-1{width:23%;top:27%;animation-duration:176s;animation-delay:-110s;opacity:.87}
+.moving-cloud.cloud-2{width:22%;top:3%;animation-duration:151s;animation-delay:-62s;opacity:.92}
+.moving-cloud.cloud-3{width:36%;top:20%;animation-duration:207s;animation-delay:-148s;opacity:.87}
+.cloud-frames{position:absolute;inset:0;background:url('assets/cloud-frames.png') 0 0/200% 200% no-repeat;image-rendering:pixelated;animation:cloud-billow-frames 11s step-end infinite}
+.cloud-1 .cloud-frames{animation-duration:13.7s;animation-delay:-4.2s}.cloud-2 .cloud-frames{animation-duration:9.8s;animation-delay:-2.5s}.cloud-3 .cloud-frames{animation-duration:15.3s;animation-delay:-8.1s}
+.chimney-plume i{left:-25px;width:50px;height:50px;bottom:0;clip-path:none;background:url('assets/smoke-frames.png') 0 0/300% 200% no-repeat;image-rendering:pixelated;opacity:0;animation:smoke-shape-frames 4.8s step-end var(--puff-delay) infinite,smoke-puff-travel 4.8s linear var(--puff-delay) infinite}
+@keyframes sun-shimmer-frames{0%,100%{background-position:0 0}25%{background-position:100% 0}50%{background-position:0 100%}75%{background-position:100% 100%}}
+@keyframes moon-glint-frames{0%,100%{background-position:0 0}25%{background-position:100% 0}50%{background-position:0 100%}75%{background-position:100% 100%}}
+@keyframes cloud-billow-frames{0%,100%{background-position:0 0}25%{background-position:100% 0}50%{background-position:0 100%}75%{background-position:100% 100%}}
+@keyframes smoke-shape-frames{0%{background-position:0 0}16.667%{background-position:50% 0}33.334%{background-position:100% 0}50%{background-position:0 100%}66.667%{background-position:50% 100%}83.334%,100%{background-position:100% 100%}}
+@keyframes smoke-puff-travel{0%{opacity:0;transform:translate(0,0)}8%{opacity:.75;transform:translate(1px,-3px)}40%{opacity:.65;transform:translate(7px,-17px)}70%{opacity:.4;transform:translate(16px,-35px)}100%{opacity:0;transform:translate(26px,-56px)}}
+@media(max-width:600px){.chimney-plume i{width:50px;height:50px}.celestial{width:8.5%}.celestial.moon{width:4.6%}}
+@media(prefers-reduced-motion:reduce){.celestial-sprite,.cloud-frames,.moving-cloud,.chimney-plume i{animation:none!important}.cloud-frames,.celestial-sprite{background-position:0 0}}

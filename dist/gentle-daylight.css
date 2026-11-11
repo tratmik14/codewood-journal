@@ -1,0 +1,13 @@
+/* Fixed sky gradients dissolve through opacity, without replacing gradient frames. */
+:root{--dawn-sky:#a4be91;--day-horizon:#c2cfa0;--deep-sky:#060c20;--night-horizon:#122032;--castle-window-frame:#34483d}
+.sky-color{background:linear-gradient(var(--dawn-sky),var(--day-horizon) 65%);transition:none}
+.sky-color:after{content:'';position:absolute;inset:0;background:linear-gradient(var(--deep-sky),var(--night-horizon) 65%);opacity:var(--night);transition:opacity 6s linear}
+.hero-landscape{transition:filter 6s linear}
+.night-wash,.sunset-wash,.hero:before,.hero:after,.stars,.house-lights,.field-fireflies{transition:opacity 6s linear}
+.hero-inner h1,.hero-inner>p,.hero-note{transition:color 6s linear}.hero-inner .knight-rest{transition:filter 6s linear}
+.moving-cloud{transition:filter 6s linear}
+.unlit-house-windows,.castle-window-lights{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;transition:opacity 6s linear}
+.unlit-house-windows{z-index:4;opacity:var(--day)}.castle-window-lights{z-index:5;opacity:var(--night)}
+.day-lantern-surround{position:absolute;inset:0;width:100%;height:100%;z-index:4;pointer-events:none;opacity:var(--day);transition:opacity 6s linear}
+@media(prefers-reduced-motion:reduce){.day-lantern-surround{transition:none}}
+@media(prefers-reduced-motion:reduce){.sky-color:after,.hero-landscape,.night-wash,.sunset-wash,.hero:before,.hero:after,.stars,.house-lights,.field-fireflies,.hero-inner h1,.hero-inner>p,.hero-note,.hero-inner .knight-rest,.moving-cloud,.unlit-house-windows,.castle-window-lights{transition:none}}

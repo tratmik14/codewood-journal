@@ -1,0 +1,10 @@
+/* A varied but restrained sky: rounded banks, flat wisps, and smaller distant clouds. */
+.moving-cloud.cloud-0{top:17%;width:31%;aspect-ratio:2.8/1;opacity:.96;animation-duration:180s;animation-delay:-48.0916s}
+.moving-cloud.cloud-1{top:3%;width:28%;aspect-ratio:2.85/1;opacity:.94;animation-duration:220s;animation-delay:-158.125s}
+.moving-cloud.cloud-2{top:27.5%;width:35%;aspect-ratio:4.1/1;opacity:.88;animation-duration:245s;animation-delay:-163.3333s}
+.moving-cloud.cloud-3{top:37%;width:15%;aspect-ratio:4.9/1;opacity:.72;animation-duration:205s;animation-delay:-99.8261s}
+.moving-cloud.cloud-4{left:0;top:10%;width:18%;aspect-ratio:3.7/1;opacity:.82;animation:cloud-eastward 235s linear -99.5763s infinite normal}
+.cloud-1 .cloud-frames{transform:scaleX(-1)}
+.cloud-3 .cloud-frames{transform:scaleX(-1)}
+.cloud-4 .cloud-frames{--morph-time:17s;--morph-phase:-6s}
+@media(prefers-reduced-motion:reduce){.moving-cloud.cloud-4{animation:none!important}}

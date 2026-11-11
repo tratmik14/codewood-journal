@@ -1,0 +1,37 @@
+/* Small angular sprites, atmospheric distance, continuous subpixel flight. */
+.celestial{width:5.2%}
+.celestial.moon{width:2.8%}
+.sky-wildlife{position:absolute;inset:0;pointer-events:none;color:#3e6062;filter:brightness(calc(1 - var(--night)*.52));transition:filter 6s linear}
+.distant-flock{position:absolute;left:0;top:27%;width:10%;height:4%;opacity:0;animation:distant-flock-crossing 96s linear -18s infinite both}
+.flock-far{top:15%;width:7%;height:3%;animation-duration:131s;animation-delay:-68s}
+.sky-bird{position:absolute;aspect-ratio:4/3;overflow:visible;fill:currentColor}
+.flight-pose{opacity:0;animation:flight-wing-frames 1.36s steps(1,end) var(--wing-delay,0s) infinite}
+.flight-pose-1{animation-name:flight-wing-frames-1}
+.flight-pose-2{animation-name:flight-wing-frames-2}
+.flight-pose-3{animation-name:flight-wing-frames-3}
+.dragon-flight{position:absolute;left:0;top:21%;width:5.4%;aspect-ratio:72/40;opacity:0;animation:rare-dragon-crossing 190s linear 16s infinite both}
+.distant-dragon{width:100%;height:100%;fill:currentColor;overflow:visible}
+.dragon-ridge{fill:#69817b}
+.distant-dragon .flight-pose{animation-duration:2.8s}
+.dragon-tail{transform-origin:40% 58%;animation:dragon-tail-drift 3.8s ease-in-out infinite alternate}
+@keyframes flight-wing-frames{0%,100%{opacity:1}25%,99.999%{opacity:0}}
+@keyframes flight-wing-frames-1{0%,50%,100%{opacity:0}25%{opacity:1}}
+@keyframes flight-wing-frames-2{0%,75%,100%{opacity:0}50%{opacity:1}}
+@keyframes flight-wing-frames-3{0%,100%{opacity:0}75%{opacity:1}}
+@keyframes distant-flock-crossing{
+ 0%{transform:translate3d(-110%,0,0);opacity:0}
+ 3%{opacity:.62}
+ 18%{transform:translate3d(calc(var(--cloud-travel)*.3),-6px,0)}
+ 35%{transform:translate3d(calc(var(--cloud-travel)*.65),5px,0);opacity:.62}
+ 52%,100%{transform:translate3d(var(--cloud-travel),-3px,0);opacity:0}
+}
+/* 34 seconds of flight, then more than two minutes of empty sky. */
+@keyframes rare-dragon-crossing{
+ 0%{transform:translate3d(-110%,0,0);opacity:0}
+ 1%{opacity:.66}
+ 6%{transform:translate3d(calc(var(--cloud-travel)*.3),-12px,0)}
+ 12%{transform:translate3d(calc(var(--cloud-travel)*.65),4px,0);opacity:.66}
+ 18%,100%{transform:translate3d(var(--cloud-travel),-8px,0);opacity:0}
+}
+@keyframes dragon-tail-drift{from{transform:rotate(-3deg)}to{transform:rotate(4deg)}}
+@media(prefers-reduced-motion:reduce){.sky-wildlife{display:none}}

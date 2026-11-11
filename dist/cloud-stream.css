@@ -1,0 +1,3 @@
+.moving-cloud.cloud-copy{top:var(--cloud-altitude);width:var(--lane-width);aspect-ratio:var(--slot-aspect);opacity:var(--copy-opacity);animation:cloud-eastward var(--cloud-cycle) linear calc(var(--cloud-base-delay) - var(--cloud-cycle)*var(--copy-phase)) infinite normal}
+.cloud-copy .cloud-frames{--morph-phase:var(--stream-morph-phase)}
+@media(prefers-reduced-motion:reduce){.moving-cloud.cloud-copy{animation:none!important}}
