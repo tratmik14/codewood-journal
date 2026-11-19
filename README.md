@@ -1,6 +1,6 @@
 # Лес кода
 
-[**Открыть сайт «Лес кода»**](https://codewood-journal.sprypeach4.chatgpt.site)
+[**Открыть сайт «Лес кода»**](https://tratmik14.github.io/codewood-journal/dist/)
 
 Адаптивный блог на HTML, CSS и JavaScript без сборки и зависимостей.
 
