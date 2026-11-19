@@ -1,5 +1,7 @@
 # Лес кода
 
+[**Открыть сайт «Лес кода»**](https://codewood-journal.sprypeach4.chatgpt.site)
+
 Адаптивный блог на HTML, CSS и JavaScript без сборки и зависимостей.
 
 ## Запуск
